@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   <link rel="stylesheet" type="text/css" href="https://preview.c9users.io/cooknat/haplo-stories/style.css">
+  </head>
+  <body>
+    <a href="/story/start">Back to the start</a>
+      <div class="wrapper">
+        <div class="empty box"></div>
+        <div class="box">
+         <% unless session["line"] && @saved_pos == "north" %>
+          <form action="newline" method="POST">
+            <input type="text" name="line"/>
+            <input type="hidden" name="pos" value="north"/>
+            <input type="submit"/>
+          </form>
+          <% else %>
+           <a href=""><%= @saved_line %></a>
+          <% end %>
+        </div>
+        <div class="empty box"></div>
+        <div class="box">
+          <% unless session["line"] && @saved_pos == "west" %>
+          <form action="newline" method="POST">
+            <input type="text" name="line"/>
+            <input type="hidden" name="pos" value="west"/>
+            <input type="submit"/>
+          </form>
+          <% else %>
+           <a href=""><%= @saved_line %></a>
+          <% end %>
+        </div>
+        <div id="centre" class="box">once there was a big bad wolf</div>
+        <div class="box">
+          <% unless session["line"] && @saved_pos == "east" %>
+          <form action="newline" method="POST">
+            <input type="text" name="line"/>
+            <input type="hidden" name="pos" value="east"/>
+            <input type="submit"/>
+          </form>
+          <% else %>
+           <a href=""><%= @saved_line %></a>
+          <% end %>
+        </div>
+        <div class="empty box"></div>
+        <div class="box">
+          <% unless session["line"] && @saved_pos == "south" %>
+          <form action="newline" method="POST">
+            <input type="text" name="line"/>
+            <input type="hidden" name="pos" value="south"/>
+            <input type="submit"/>
+          </form>
+          <% else %>
+           <a href=""><%= @saved_line %></a>
+          <% end %>
+          </div>
+        <div class="empty box"></div>
+      </div>
+    </body>
+  </html>
+  

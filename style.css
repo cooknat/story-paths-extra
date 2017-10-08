@@ -1,0 +1,22 @@
+body {
+    margin: 40px;
+}
+      
+.wrapper {
+    display: grid;
+    grid-template-columns: 250px 250px 250px;
+    grid-template-rows: 150px 150px 150px;
+    grid-gap: 20px;
+    background-color: #fff;
+    color: #444;
+}
+
+.box {
+    background-color: #A6C0C5;
+    color: black;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+    text-align: center;
+    vertical-align: middle;
+}
