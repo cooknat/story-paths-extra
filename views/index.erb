@@ -15,7 +15,7 @@
             <input type="submit"/>
           </form>
           <% else %>
-           <a href=""><%= @saved_line %></a>
+           <a href="/story/next"><%= @saved_line %></a>
           <% end %>
         </div>
         <div class="empty box"></div>
@@ -27,10 +27,10 @@
             <input type="submit"/>
           </form>
           <% else %>
-           <a href=""><%= @saved_line %></a>
+           <a href="/story/next"><%= @saved_line %></a>
           <% end %>
         </div>
-        <div id="centre" class="box">once there was a big bad wolf</div>
+        <div id="centre" class="box"><%= session["startline"].storyline %></div>
         <div class="box">
           <% unless session["line"] && @saved_pos == "east" %>
           <form action="newline" method="POST">
@@ -39,7 +39,7 @@
             <input type="submit"/>
           </form>
           <% else %>
-           <a href=""><%= @saved_line %></a>
+           <a href="/story/next"><%= @saved_line %></a>
           <% end %>
         </div>
         <div class="empty box"></div>
@@ -51,7 +51,7 @@
             <input type="submit"/>
           </form>
           <% else %>
-           <a href=""><%= @saved_line %></a>
+           <a href="/story/next"><%= @saved_line %></a>
           <% end %>
           </div>
         <div class="empty box"></div>
