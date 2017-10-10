@@ -16,55 +16,59 @@
           <% else %> 
             <% if i==2 %>
               <div class="box">
-                <% line_exists = session["currentpage"].detect { |l| l.position == "a"} %>
-                  <% if line_exists %>
-                    <a href="/story/next"><%= line_exists.storyline %></a>
+                <% session['current'].each do |line| %>
+                  <% if line.position == "north" %>
+                    <a href="/story/next"><%= line.storyline %></a>
                   <% else %>
                     <form action="newline" method="POST">
                       <input type="text" name="line"/>
-                      <input type="hidden" name="pos" value="a"/>
+                      <input type="hidden" name="pos" value="north"/>
                       <input type="submit"/>
                     </form>
                   <% end %>
-              </div> 
+                <% end %>  
+              </div>  
             <% elsif i==4 %>
               <div class="box">
-                 <% line_exists = session["currentpage"].detect { |l| l.position == "b"} %>
-                  <% if line_exists %>
-                    <a href="/story/next"><%= line_exists.storyline %></a>
+                <% session['current'].each do |line| %>
+                  <% if line.position == "west" %>   
+                    <a href="/story/next"><%= line.storyline %></a>
                   <% else %>
                     <form action="newline" method="POST">
                       <input type="text" name="line"/>
-                      <input type="hidden" name="pos" value="b"/>
+                      <input type="hidden" name="pos" value="west"/>
                       <input type="submit"/>
                     </form>
                   <% end %>
+                <% end %>  
               </div>  
             <% elsif i==6 %>
               <div class="box">
-                <% line_exists = session["currentpage"].detect { |l| l.position == "c"} %>
-                  <% if line_exists %>
-                    <a href="/story/next"><%= line_exists.storyline %></a>
+                <% session['current'].each do |line| %>
+                  <% if line.position == "east" %>   
+                    <a href="/story/next"><%= line.storyline %></a>
                   <% else %>
                     <form action="newline" method="POST">
                       <input type="text" name="line"/>
-                      <input type="hidden" name="pos" value="c"/>
+                      <input type="hidden" name="pos" value="east"/>
                       <input type="submit"/>
                     </form>
                   <% end %>
+                <% end %>  
               </div>  
             <% elsif i==8 %>
               <div class="box">
-                 <% line_exists = session["currentpage"].detect { |l| l.position == "d"} %>
-                  <% if line_exists %>
-                    <a href="/story/next"><%= line_exists.storyline %></a>
+                <% session['current'].each do |line| %>
+                  <% if line.position == "south" %>   
+                    <a href="/story/next"><%= line.storyline %></a>
                   <% else %>
                     <form action="newline" method="POST">
                       <input type="text" name="line"/>
-                      <input type="hidden" name="pos" value="d"/>
+                      <input type="hidden" name="pos" value="south"/>
                       <input type="submit"/>
                     </form>
-                 <% end %>  
+                  <% end %>
+                <% end %>  
               </div>  
             <% end %>    
           <% end %>
