@@ -1,14 +1,13 @@
 
-Instructions for running
-Type ruby stories.rb in the command line
+# Approach to design and implementation
 
-Approach to design and implementation
+## Choosing the technology
 
-choosing the technology
+With limited experience in any server side technology, I spent some time looking at Node.js, Rails and Sinatra.
 
-designing the data structure
+## Designing the data structure
 
-step by step 
+## Process
   front end
   got routes working
   fiddled about with data structure - using pos or not
@@ -22,7 +21,7 @@ learnt
  writing out the question you need to answer and then going away for 20 minutes often answers the question for you in your own head
  
 
-Shortcuts
+##Shortcuts
  not parsing user entries
   so avoid
 percents
@@ -34,6 +33,6 @@ long words don't wrap and long sentences don't scroll or resize
 extra things that would be nice to do - up one level, print a random story chain, randomize the starter sentence
  
 
-What I think this test is testing
+##What I think this test is testing
 
 
