@@ -4,7 +4,7 @@
    <link rel="stylesheet" type="text/css" href="https://preview.c9users.io/cooknat/haplo-stories/style.css">
   </head>
   <body>
-    <a href="/story/start">Back to the start</a>
+    <a href="/<%= session["story"].first.storyline %>">Back to the start</a>
       <div class="wrapper">
         <% 1.upto(9) do  |i| %>
           <% if i%2==1 && i!=5 %>
@@ -16,9 +16,9 @@
           <% else %> 
             <% if i==2 %>
               <div class="box">
-                <% line_exists = session["currentpage"].detect { |l| l.position == "a"} %>
-                  <% if line_exists %>
-                    <a href="/story/next"><%= line_exists.storyline %></a>
+                <% @line_exists = session["currentpage"].detect { |l| l.position == "a"} %>
+                  <% if @line_exists %>
+                    <a href="/<%= @line_exists.storyline %>"><%= @line_exists.storyline %></a>
                   <% else %>
                     <form action="newline" method="POST">
                       <input type="text" name="line"/>
@@ -29,9 +29,9 @@
               </div> 
             <% elsif i==4 %>
               <div class="box">
-                 <% line_exists = session["currentpage"].detect { |l| l.position == "b"} %>
-                  <% if line_exists %>
-                    <a href="/story/next"><%= line_exists.storyline %></a>
+                 <% @line_exists = session["currentpage"].detect { |l| l.position == "b"} %>
+                  <% if @line_exists %>
+                    <a href="/<%= @line_exists.storyline %>"><%= @line_exists.storyline %></a>
                   <% else %>
                     <form action="newline" method="POST">
                       <input type="text" name="line"/>
@@ -42,9 +42,9 @@
               </div>  
             <% elsif i==6 %>
               <div class="box">
-                <% line_exists = session["currentpage"].detect { |l| l.position == "c"} %>
-                  <% if line_exists %>
-                    <a href="/story/next"><%= line_exists.storyline %></a>
+                <% @line_exists = session["currentpage"].detect { |l| l.position == "c"} %>
+                  <% if @line_exists %>
+                    <a href="/<%= @line_exists.storyline %>"><%= @line_exists.storyline %></a>
                   <% else %>
                     <form action="newline" method="POST">
                       <input type="text" name="line"/>
@@ -55,9 +55,9 @@
               </div>  
             <% elsif i==8 %>
               <div class="box">
-                 <% line_exists = session["currentpage"].detect { |l| l.position == "d"} %>
-                  <% if line_exists %>
-                    <a href="/story/next"><%= line_exists.storyline %></a>
+                 <% @line_exists = session["currentpage"].detect { |l| l.position == "d"} %>
+                  <% if @line_exists %>
+                    <a href="/<%= @line_exists.storyline %>"><%= @line_exists.storyline %></a>
                   <% else %>
                     <form action="newline" method="POST">
                       <input type="text" name="line"/>
