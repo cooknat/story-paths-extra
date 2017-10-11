@@ -5,38 +5,32 @@ require_relative 'models/line'
 enable :sessions
 
 get '/story' do
-  session["currentpage"] = session['story'].select do |line|
-    line.parent_id == session["startline"].id
-  end 
+  getCurrentLines
   erb :index
 end
 
-get '/:line' do #when one of the user added links or back to the start are clicked
- new_start = session["story"].detect { |l| l.storyline == params[:line]} 
- session["startline"] = new_start
- session["currentpage"] = session['story'].select do |line|
-    line.parent_id == session["startline"].id
-  end 
+get '/:line' do #when one of the user added links/back to the start are clicked
+ session["startline"] = session["story"].detect { |line| line.storyline == params[:line]} 
+ getCurrentLines
  erb :index
 end
 
 get '/' do
-  @startLine = Line.new(0, "centre", "once there was a bad wolf")
-  session["story"] = [@startLine]
-  session["startline"] = @startLine
-  session["currentpage"] = []
+  session["story"] = [Line.new(0, "centre", "Once upon a time, there was a big bad wolf.")]
+  session["startline"] = session["story"].first
+  getCurrentLines
   erb :index
 end
 
 post '/newline' do
-  addToStory(params["line"], params["pos"])
+  session["story"] <<  Line.new(session["startline"].id, params["pos"], params["line"])
   redirect '/story'
 end 
 
-#create a line and add it to the story array
-def addToStory(storytext, pos)
-  pid = session["startline"].id
-  session["story"] <<  Line.new(pid, pos, storytext)
-  p session["story"]
+#get array of lines with parent id equal to current centre line
+def getCurrentLines
+  session["currentpage"] = session['story'].select do |line|
+    line.parent_id == session["startline"].id
+  end  
+  session["currentpage"]
 end  
-
