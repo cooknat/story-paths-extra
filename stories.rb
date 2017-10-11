@@ -10,7 +10,7 @@ get '/story' do
 end
 
 get '/:line' do #when one of the user added links/back to the start are clicked
- session["startline"] = session["story"].detect { |line| line.storyline == params[:line]} 
+ session["startline"] = session["story"].detect { |l| l.storyline == params[:line]} 
  getCurrentLines
  erb :index
 end
