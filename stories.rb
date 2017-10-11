@@ -14,7 +14,9 @@ end
 get '/:line' do #when one of the user added links or back to the start are clicked
  new_start = session["story"].detect { |l| l.storyline == params[:line]} 
  session["startline"] = new_start
- session["currentpage"] = []
+ session["currentpage"] = session['story'].select do |line|
+    line.parent_id == session["startline"].id
+  end 
  erb :index
 end
 
