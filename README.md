@@ -34,6 +34,8 @@ Some shortcuts were taken to facilitate completion of the task within a shorter 
   The implication of this is that some non-alphanumeric characters may cause errors, specifically those used in URLS, for example percent, and leading question marks. Pairs of double quotes cause the story to reset to the start.
 * Limited CSS
   A particular implication of this is that long words don't wrap within their grid square, and long sentences don't scroll or resize.
+* Possible issue with repeated input
+  If a user adds in the same string in more than one place, then clicks it, the application will take them to the view for the most recently added occurrence of that string.
 
 
 ### Further functionality
