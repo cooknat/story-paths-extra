@@ -11,7 +11,9 @@ end
 
 #when one of the user added links/back to the start are clicked
 get '/:line' do 
- session["startline"] = session["story"].detect { |l| l.storyline == params[:line]} 
+ matchingLines = session["story"].select { |l| l.storyline == params[:line]}
+ #get most recent matching line
+ session["startline"] = matchingLines.last 
  getCurrentLines
  erb :index
 end
