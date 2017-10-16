@@ -31,7 +31,7 @@ generated conditionally to either allow the user to add another line, or click a
 Some shortcuts were taken to facilitate completion of the task within a shorter time. These were as follows:
 
 * User input was not parsed for validity or special characters
-  The implication of this is that some non-alphanumeric characters may cause errors, specifically those used in URLS, for example percent, and leading question marks. Pairs of double quotes cause the story to reset to the start.
+  The implication of this is that some non-alphanumeric characters may cause errors, specifically those used in URLS, for example percent, and leading question marks. Pairs of double quotes cause the story to reset to the start. They can also submit a blank string meaning that branch of the story is effectively closed off as it does not generate a clickable link.
 * Limited CSS
   A particular implication of this is that long words don't wrap within their grid square, and long sentences don't scroll or resize.
 * Possible issue with repeated input

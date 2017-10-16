@@ -5,6 +5,8 @@
   </head>
   <body>
     <a href="/<%= session["story"].first.storyline %>">Back to the start</a>
+    <a href="/back">Up one level</a>
+    <a href="/trail">Tell me a story</a>
       <div class="wrapper">
         <% 1.upto(9) do  |i| %>
           <% if i%2==1 && i!=5 %>
@@ -69,6 +71,11 @@
             <% end %>    
           <% end %>
         <% end %>
+        <div id="storytrail">
+          <% if @storytrail %>
+            <p><%= @storytrail %></p>
+          <% end %>
+        </div>
       </div>
     </body>
   </html>
